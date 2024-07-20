@@ -34,35 +34,43 @@
   "cores": {
     "mastery_1": {
       "name": "Mastery 1",
-      "type": "mastery"
+      "type": "mastery",
+      "description": "Mastery core current level. Syntax: [currentLevel/targetLevel]"
     },
     "mastery_2": {
       "name": "Mastery 2",
-      "type": "mastery"
+      "type": "mastery",
+      "description": "Mastery core current level. Syntax: [currentLevel/targetLevel]"
     },
     "skill_1": {
       "name": "Skill 1",
-      "type": "skill"
+      "type": "skill",
+      "description": "Skill core current level. Syntax: [currentLevel/targetLevel]"
     },
     "boost_1": {
       "name": "Boost 1",
-      "type": "boost"
+      "type": "boost",
+      "description": "Boost core current level. Syntax: [currentLevel/targetLevel]"
     },
     "boost_2": {
       "name": "Boost 2",
-      "type": "boost"
+      "type": "boost",
+      "description": "Boost core current level. Syntax: [currentLevel/targetLevel]"
     },
     "boost_3": {
       "name": "Boost 3",
-      "type": "boost"
+      "type": "boost",
+      "description": "Boost core current level. Syntax: [currentLevel/targetLevel]"
     },
     "boost_4": {
       "name": "Boost 4",
-      "type": "boost"
+      "type": "boost",
+      "description": "Boost core current level. Syntax: [currentLevel/targetLevel]"
     },
     "common_1": {
       "name": "Sol Janus",
-      "type": "common"
+      "type": "common",
+      "description": "Sol Janus current level. Syntax: [currentLevel/targetLevel]"
     }
   }
 }
