@@ -1,5 +1,5 @@
 require('dotenv').config();
-const { Client, IntentsBitField, Integration } = require('discord.js');
+const { Client, IntentsBitField, Integration, PermissionsBitField } = require('discord.js');
 const data = require('./data.json');
 const ratio = require('./commands/ratio');
 const frags = require('./commands/frags');
@@ -19,6 +19,9 @@ bot.on('ready', (c) => {
 })
 
 bot.on('interactionCreate', async (interaction) => {
+
+  console.log(interaction.appPermissions);
+  
   if (!interaction.isChatInputCommand()) return;
 
   if(interaction.commandName ==='frags') {

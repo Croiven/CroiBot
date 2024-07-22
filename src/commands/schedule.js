@@ -1,5 +1,10 @@
+const { PermissionsBitField } = require('discord.js');
+
 module.exports = {
   schedule: async (interaction) => {
+
+    const botPermissions = interaction.appPermissions;
+
     const numbers = ["\u0031\u20E3", "\u0032\u20E3", "\u0033\u20E3", "\u0034\u20E3", "\u0035\u20E3", "\u0036\u20E3", "\u0037\u20E3", "\u0038\u20E3", "\u0039\u20E3"];
 
     const dateNow = new Date();
@@ -41,15 +46,13 @@ module.exports = {
     times = times.concat(`:x: No can do`);
     reactions.push('\u274C');
 
-    console.log("times: ", times);
-
-    console.log("reactions", reactions);
-
     const reply = await interaction.reply({ content: times, fetchReply: true });
     
-    for (const reaction of reactions) {
-      console.log("reaction: ", reaction);
-      await reply.react(reaction);
+    if (botPermissions.has(PermissionsBitField.Flags.AddReactions)){
+      for (const reaction of reactions) {
+        console.log("reaction: ", reaction);
+        await reply.react(reaction);
+      }
     }
   }
 }
