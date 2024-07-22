@@ -45,12 +45,14 @@ const commands = [
       {
         name: 'first',
         description: 'First time',
-        type: ApplicationCommandOptionType.Number
+        type: ApplicationCommandOptionType.Number,
+        required: true
       },
       {
         name: 'last',
         description: 'Last time',
-        type: ApplicationCommandOptionType.Number
+        type: ApplicationCommandOptionType.Number,
+        required: true
       },
     ]
   },

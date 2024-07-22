@@ -18,14 +18,14 @@ bot.on('ready', (c) => {
   console.log(`${c.user.tag} is online!`);
 })
 
-bot.on('interactionCreate', (interaction) => {
+bot.on('interactionCreate', async (interaction) => {
   if (!interaction.isChatInputCommand()) return;
 
   if(interaction.commandName ==='frags') {
     frags.frags(interaction);
   }
   else if (interaction.commandName ==='schedule') {
-    schedule.schedule(interaction);
+    await schedule.schedule(interaction);
   }
   else if (interaction.commandName ==='ratio') {
     ratio.ratio(interaction);
