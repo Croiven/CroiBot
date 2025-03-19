@@ -1,12 +1,12 @@
 require('dotenv').config();
-const { REST, Routes, ApplicationCommandOptionType } = require('discord.js');
-const data = require('./data.json');
+import { REST, Routes, ApplicationCommandOptionType } from 'discord.js';
+import { cores } from './data.json';
 
 const options = [];
 
-Object.keys(data.cores).forEach(key => {
+Object.keys(cores).forEach(key => {
 
-  const description = data.cores[key].description;
+  const description = cores[key].description;
 
   options.push({
     name: key,

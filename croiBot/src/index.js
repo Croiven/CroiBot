@@ -1,9 +1,9 @@
 require('dotenv').config();
-const { Client, IntentsBitField, Integration, PermissionsBitField } = require('discord.js');
-const data = require('./data.json');
-const ratio = require('./commands/ratio');
-const frags = require('./commands/frags');
-const schedule = require('./commands/schedule');
+import { Client, IntentsBitField, Integration, PermissionsBitField } from 'discord.js';
+import data from './data.json';
+import { ratio as _ratio } from './commands/ratio';
+import { frags as _frags } from './commands/frags';
+import { schedule as _schedule } from './commands/schedule';
 
 const bot = new Client({
   intents: [
@@ -25,13 +25,13 @@ bot.on('interactionCreate', async (interaction) => {
   if (!interaction.isChatInputCommand()) return;
 
   if(interaction.commandName ==='frags') {
-    frags.frags(interaction);
+    _frags(interaction);
   }
   else if (interaction.commandName ==='schedule') {
-    await schedule.schedule(interaction);
+    await _schedule(interaction);
   }
   else if (interaction.commandName ==='ratio') {
-    ratio.ratio(interaction);
+    _ratio(interaction);
   }
 })
 
