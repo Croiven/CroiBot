@@ -1,4 +1,4 @@
-export function ratio(interaction) {
+export const ratio = (interaction) => {
   const mainStat = interaction.options.get('main')?.value;
   const mainPercentage = interaction.options.get('main_percentage')?.value;
   const secondaryStat = interaction.options.get('secondary')?.value;

@@ -1,9 +1,9 @@
-require('dotenv').config();
-import { Client, IntentsBitField, Integration, PermissionsBitField } from 'discord.js';
-import data from './data.json';
-import { ratio as _ratio } from './commands/ratio';
-import { frags as _frags } from './commands/frags';
-import { schedule as _schedule } from './commands/schedule';
+import { Client, IntentsBitField } from 'discord.js';
+import { ratio as _ratio } from './commands/ratio.js';
+import { frags as _frags } from './commands/frags.js';
+import { schedule as _schedule } from './commands/schedule.js';
+import dotenv from 'dotenv';
+dotenv.config();
 
 const bot = new Client({
   intents: [

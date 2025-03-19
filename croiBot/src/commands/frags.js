@@ -1,6 +1,13 @@
-import data, { cores } from '.././data.json';
+import { readFile } from 'fs/promises';
+
+const data = JSON.parse(
+  await readFile(new URL('../data.json', import.meta.url))
+);
 
 export function frags(interaction) {
+
+  const cores = data.cores;
+
   if (!interaction.isChatInputCommand()) return;
 
   let fields = [];
