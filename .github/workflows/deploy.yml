@@ -1,4 +1,4 @@
-name: Deploy Two Bots to Pi
+name: Deploy Two Bots on Pi
 
 on:
   push:
@@ -7,9 +7,10 @@ on:
 
 jobs:
   deploy:
-    runs-on: self-hosted  # Run on your Raspberry Pi
+    runs-on: self-hosted  # run on your Raspberry Pi
+
     steps:
-      # 1️⃣ Checkout repository
+      # 1️⃣ Checkout repository directly into deployment folder
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
