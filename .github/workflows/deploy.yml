@@ -7,21 +7,22 @@ on:
 
 jobs:
   deploy:
-    runs-on: self-hosted  # Important: run on your Pi
+    runs-on: self-hosted  # Run on your Raspberry Pi
     steps:
+      # 1️⃣ Checkout repository
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # Deploy CroiBot
+      # 2️⃣ Deploy CroiBot
       - name: Deploy CroiBot
         run: |
-          cd ~/croiBot
+          cd /home/joonas-raspi/development/CroiBot/croiBot
           npm ci --production
           pm2 restart CroiBot || pm2 start src/index.js --name CroiBot
 
-      # Deploy scheduleBot
+      # 3️⃣ Deploy scheduleBot
       - name: Deploy scheduleBot
         run: |
-          cd ~/scheduleBot
+          cd /home/joonas-raspi/development/CroiBot/scheduleBot
           npm ci --production
           pm2 restart schedules-bot || pm2 start src/index.js --name schedules-bot
