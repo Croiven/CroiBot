@@ -10,11 +10,12 @@ jobs:
     runs-on: self-hosted  # run on your Raspberry Pi
 
     steps:
-      # 1️⃣ Checkout repository directly into deployment folder
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          path: /home/joonas-raspi/development/CroiBot
+      # 1️⃣ Update the repository once
+      - name: Update repository
+        run: |
+          cd /home/joonas-raspi/development/CroiBot
+          git fetch --all
+          git reset --hard origin/main
 
       # 2️⃣ Deploy CroiBot
       - name: Deploy CroiBot
