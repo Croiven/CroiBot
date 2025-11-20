@@ -1,0 +1,45 @@
+name: Deploy Two Bots to Pi
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Start ssh-agent and add private key
+        uses: webfactory/ssh-agent@v0.8.1
+        with:
+          ssh-private-key: ${{ secrets.PI_SSH_PRIVATE_KEY }}
+
+      - name: Add Pi to known_hosts
+        run: |
+          mkdir -p ~/.ssh
+          ssh-keyscan -p ${{ secrets.PI_SSH_PORT }} ${{ secrets.PI_SSH_HOST }} >> ~/.ssh/known_hosts
+          chmod 644 ~/.ssh/known_hosts
+
+      # 4️⃣ Deploy croiBot
+      - name: Deploy CroiBot
+        run: |
+          rsync -avz --delete --exclude='.git' --exclude='node_modules' -e "ssh -p ${{ secrets.PI_SSH_PORT }}" ./croiBot/ ${{ secrets.PI_SSH_USER }}@${{ secrets.PI_SSH_HOST }}:${{ secrets.PI_DEPLOY_PATH_CROI }}
+          ssh -p ${{ secrets.PI_SSH_PORT }} ${{ secrets.PI_SSH_USER }}@${{ secrets.PI_SSH_HOST }} << 'EOF'
+            cd "${{ secrets.PI_DEPLOY_PATH_CROI }}/src"
+            npm ci --production
+            pm2 restart CroiBot || pm2 start index.js --name CroiBot
+          EOF
+
+      # 5️⃣ Deploy scheduleBot
+      - name: Deploy scheduleBot
+        run: |
+          rsync -avz --delete --exclude='.git' --exclude='node_modules' -e "ssh -p ${{ secrets.PI_SSH_PORT }}" ./scheduleBot/ ${{ secrets.PI_SSH_USER }}@${{ secrets.PI_SSH_HOST }}:${{ secrets.PI_DEPLOY_PATH_SCHEDULE }}
+          ssh -p ${{ secrets.PI_SSH_PORT }} ${{ secrets.PI_SSH_USER }}@${{ secrets.PI_SSH_HOST }} << 'EOF'
+            cd "${{ secrets.PI_DEPLOY_PATH_SCHEDULE }}/src"
+            npm ci --production
+            pm2 restart schedules-bot || pm2 start index.js --name schedules-bot
+          EOF
