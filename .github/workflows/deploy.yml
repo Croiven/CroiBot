@@ -12,6 +12,8 @@ jobs:
       # 1️⃣ Checkout repository
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          path: /home/joonas-raspi/development/CroiBot
 
       # 2️⃣ Deploy CroiBot
       - name: Deploy CroiBot

@@ -49,7 +49,7 @@ export function frags(interaction) {
   if (fields.length > 1) {
     fields.push(
       {
-        name: 'Total needed materials',
+        name: 'Total needed erda materials',
         value: `Fragments: ${totalFragments} \n Sol erdas: ${totalErdas}`
       });
   }
