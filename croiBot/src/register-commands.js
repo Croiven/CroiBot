@@ -1,6 +1,8 @@
-require('dotenv').config();
+import dotenv from 'dotenv';
+dotenv.config();
 import { REST, Routes, ApplicationCommandOptionType } from 'discord.js';
-import { cores } from './data.json';
+import data from './data.json' with { type: 'json' };
+const { cores } = data;
 
 const options = [];
 
@@ -26,7 +28,19 @@ const commands = [
   {
     name: 'schedule',
     description: 'Generates unixtimestamps for wanted range',
-    options: [
+    options: [      
+      {
+        name: 'first',
+        description: 'First time',
+        type: ApplicationCommandOptionType.Number,
+        required: true
+      },
+      {
+        name: 'last',
+        description: 'Last time',
+        type: ApplicationCommandOptionType.Number,
+        required: true
+      },
       {
         name: 'day',
         description: 'Wanted day, default today',
@@ -42,18 +56,7 @@ const commands = [
         description: 'Wanted year, default this year',
         type: ApplicationCommandOptionType.Number
       },
-      {
-        name: 'first',
-        description: 'First time',
-        type: ApplicationCommandOptionType.Number,
-        required: true
-      },
-      {
-        name: 'last',
-        description: 'Last time',
-        type: ApplicationCommandOptionType.Number,
-        required: true
-      },
+
     ]
   },
   {

@@ -22,6 +22,7 @@ jobs:
         run: |
           cd /home/joonas-raspi/development/CroiBot/croiBot
           npm ci --production
+          node src/register-commands.js
           pm2 restart CroiBot || pm2 start src/index.js --name CroiBot
 
       # 3️⃣ Deploy scheduleBot
@@ -29,4 +30,5 @@ jobs:
         run: |
           cd /home/joonas-raspi/development/CroiBot/scheduleBot
           npm ci --production
+          node src/register-commands.js
           pm2 restart schedules-bot || pm2 start src/index.js --name schedules-bot

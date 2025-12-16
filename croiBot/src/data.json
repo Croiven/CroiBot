@@ -9,10 +9,10 @@
   },
   "skill": {
     "fragments": [
-      0,0,30,65,105,150,200,255,315,380,580,660,750,850,960,1080,1210,1350,1500,1660,2010,2180,2360,2550,2750,2960,3180,3410,3650,3900,4400
+      0,100,130,165,205,250,300,355,415,480,680,760,850,950,1060,1180,1310,1450,1600,1760,2110,2280,2460,2650,2850,3060,3280,3510,3750,4000,4500
     ],
     "erdas": [
-      0,0,1,2,3,5,7,9,12,15,25,28,31,35,39,43,47,51,55,60,75,80,85,90,95,100,106,112,118,125,145
+      0,5,6,7,8,10,12,14,17,20,30,33,36,40,44,48,52,56,60,65,80,85,90,95,100,105,111,117,123,130,150
     ]
   },
   "boost": {
@@ -42,8 +42,23 @@
       "type": "mastery",
       "description": "Mastery core current level. Syntax: [currentLevel/targetLevel]"
     },
-    "skill_1": {
-      "name": "Skill 1",
+    "mastery_3": {
+      "name": "Mastery 1",
+      "type": "mastery",
+      "description": "Mastery core current level. Syntax: [currentLevel/targetLevel]"
+    },
+    "mastery_4": {
+      "name": "Mastery 2",
+      "type": "mastery",
+      "description": "Mastery core current level. Syntax: [currentLevel/targetLevel]"
+    },
+    "origin": {
+      "name": "Origin",
+      "type": "skill",
+      "description": "Skill core current level. Syntax: [currentLevel/targetLevel]"
+    },
+    "ascent": {
+      "name": "Ascent",
       "type": "skill",
       "description": "Skill core current level. Syntax: [currentLevel/targetLevel]"
     },
@@ -67,7 +82,7 @@
       "type": "boost",
       "description": "Boost core current level. Syntax: [currentLevel/targetLevel]"
     },
-    "common_1": {
+    "janus": {
       "name": "Sol Janus",
       "type": "common",
       "description": "Sol Janus current level. Syntax: [currentLevel/targetLevel]"
