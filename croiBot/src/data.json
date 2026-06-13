@@ -86,6 +86,11 @@
       "name": "Sol Janus",
       "type": "common",
       "description": "Sol Janus current level. Syntax: [currentLevel/targetLevel]"
+    },
+    "hecate": {
+      "name": "Sol Hecate",
+      "type": "common",
+      "description": "Sol Hecate current level. Syntax: [currentLevel/targetLevel]"
     }
   }
 }
